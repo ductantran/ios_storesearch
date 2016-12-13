@@ -13,6 +13,7 @@
 		FC210AA81DDE942400E56FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC210AA71DDE942400E56FED /* Assets.xcassets */; };
 		FC210AAB1DDE942400E56FED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC210AA91DDE942400E56FED /* LaunchScreen.storyboard */; };
 		FC210AB31DDE9EDF00E56FED /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC210AB21DDE9EDF00E56FED /* SearchResult.swift */; };
+		FC3665E51E001B540080E935 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC3665E41E001B540080E935 /* LoadingCell.xib */; };
 		FC7DEB5D1DFE7CAD00EA63A7 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7DEB5C1DFE7CAD00EA63A7 /* SearchResultCell.xib */; };
 		FC7DEB611DFE807500EA63A7 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */; };
 		FC7DEB631DFE834F00EA63A7 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7DEB621DFE834F00EA63A7 /* NothingFoundCell.xib */; };
@@ -27,6 +28,7 @@
 		FC210AAA1DDE942400E56FED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC210AAC1DDE942400E56FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC210AB21DDE9EDF00E56FED /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		FC3665E41E001B540080E935 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		FC7DEB5C1DFE7CAD00EA63A7 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		FC7DEB621DFE834F00EA63A7 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				FC7DEB5C1DFE7CAD00EA63A7 /* SearchResultCell.xib */,
 				FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */,
 				FC7DEB621DFE834F00EA63A7 /* NothingFoundCell.xib */,
+				FC3665E41E001B540080E935 /* LoadingCell.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			files = (
 				FC210AAB1DDE942400E56FED /* LaunchScreen.storyboard in Resources */,
 				FC210AA81DDE942400E56FED /* Assets.xcassets in Resources */,
+				FC3665E51E001B540080E935 /* LoadingCell.xib in Resources */,
 				FC7DEB5D1DFE7CAD00EA63A7 /* SearchResultCell.xib in Resources */,
 				FC7DEB631DFE834F00EA63A7 /* NothingFoundCell.xib in Resources */,
 				FC210AA61DDE942400E56FED /* Main.storyboard in Resources */,
