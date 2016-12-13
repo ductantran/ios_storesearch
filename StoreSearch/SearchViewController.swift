@@ -42,10 +42,10 @@ class SearchViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
+//MARK: - HTTP Networking
 extension SearchViewController {
     func iTunesURL(searchText: String, category: Int) -> URL {
         let entityName: String
@@ -65,6 +65,56 @@ extension SearchViewController {
         return url!
     }
     
+    func performSearch() {
+        if !searchBar.text!.isEmpty {
+            searchBar.resignFirstResponder()
+            
+            dataTask?.cancel()
+            
+            isLoading = true
+            tableView.reloadData()
+            
+            hasSearched = true
+            searchResults = []
+            
+            let url = iTunesURL(searchText: searchBar.text!, category: segmentedControl.selectedSegmentIndex)
+            
+            let session = URLSession.shared
+            
+            dataTask = session.dataTask(with: url) {
+                data, response, error in
+                
+                if let error = error as? NSError, error.code == -999 {
+                    print("Failure: \(error)")
+                    return
+                } else if let httpResponse = response as? HTTPURLResponse,
+                    httpResponse.statusCode == 200 {
+                    if let data = data, let jsonDictionary = self.parse(json: data) {
+                        self.searchResults = self.parse(dictionary: jsonDictionary)
+                        self.searchResults.sort(by: <)
+                        
+                        DispatchQueue.main.async {
+                            self.isLoading = false
+                            self.tableView.reloadData()
+                        }
+                        return
+                    }
+                } else {
+                    print("Failure: \(response)")
+                }
+                
+                DispatchQueue.main.async {
+                    self.hasSearched = false
+                    self.isLoading = false
+                    self.tableView.reloadData()
+                    self.showNetworkError()
+                }
+            }
+            dataTask?.resume()
+            
+        }
+    }
+
     
     func parse(json data: Data) -> [String: Any]? {
         do {
@@ -76,16 +126,12 @@ extension SearchViewController {
     }
     
     func parse(dictionary: [String: Any]) -> [SearchResult] {
-        // 1
         guard let array = dictionary["results"] as? [Any] else {
             print("Expected 'results' array")
             return []
         }
-        
         var searchResults: [SearchResult] = []
-        // 2
         for resultDict in array {
-            // 3
             if let resultDict = resultDict as? [String: Any] {
                 var searchResult: SearchResult?
                 
@@ -184,21 +230,6 @@ extension SearchViewController {
         return searchResult
     }
     
-    func kindForDisplay(_ kind: String) -> String {
-        switch kind {
-        case "album": return "Album"
-        case "audiobook": return "Audio Book"
-        case "book": return "Book"
-        case "ebook": return "E-Book"
-        case "feature-movie": return "Movie"
-        case "music-video": return "Music Video"
-        case "podcast": return "Podcast"
-        case "software": return "App"
-        case "song": return "Song"
-        case "tv-episode": return "TV Episode"
-        default: return kind
-        }
-    }
     
     func showNetworkError() {
         let alert = UIAlertController(title: "Whoops...",
@@ -210,6 +241,7 @@ extension SearchViewController {
     }
 }
 
+//MARK: - SearchViewController's SearchBar Data Source
 extension SearchViewController: UISearchBarDelegate {
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
@@ -219,58 +251,9 @@ extension SearchViewController: UISearchBarDelegate {
         performSearch()
     }
     
-    func performSearch() {
-        if !searchBar.text!.isEmpty {
-            searchBar.resignFirstResponder()
-            
-            dataTask?.cancel()
-            
-            isLoading = true
-            tableView.reloadData()
-            
-            hasSearched = true
-            searchResults = []
-            
-            let url = iTunesURL(searchText: searchBar.text!, category: segmentedControl.selectedSegmentIndex)
-            
-            let session = URLSession.shared
-            
-            dataTask = session.dataTask(with: url) {
-                data, response, error in
-                
-                if let error = error as? NSError, error.code == -999 {
-                    print("Failure: \(error)")
-                    return
-                } else if let httpResponse = response as? HTTPURLResponse,
-                    httpResponse.statusCode == 200 {
-                    if let data = data, let jsonDictionary = self.parse(json: data) {
-                        self.searchResults = self.parse(dictionary: jsonDictionary)
-                        self.searchResults.sort(by: <)
-                        
-                        DispatchQueue.main.async {
-                            self.isLoading = false
-                            self.tableView.reloadData()
-                        }
-                        return
-                    }
-                } else {
-                    print("Failure: \(response)")
-                }
-                
-                DispatchQueue.main.async {
-                    self.hasSearched = false
-                    self.isLoading = false
-                    self.tableView.reloadData()
-                    self.showNetworkError()
-                }
-            }
-            dataTask?.resume()
-            
-        }
-    }
 }
 
-
+//MARK: - SearchViewController's TableView Data Source
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isLoading {
@@ -296,17 +279,13 @@ extension SearchViewController: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.searchResultCell, for: indexPath) as! SearchResultCell
             let searchResult = searchResults[indexPath.row]
-            cell.nameLabel.text = searchResult.name
-            if searchResult.artistName.isEmpty {
-                cell.artistNameLabel.text = "Unknown"
-            } else {
-                cell.artistNameLabel.text = String(format: "%@ (%@)", searchResult.artistName, kindForDisplay(searchResult.kind))
-            }
+            cell.configure(for: searchResult)
             return cell
         }
     }
 }
 
+//MARK: - SearchViewController's TableView Delegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -321,6 +300,7 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - TableView Cell Identifiers Struct
 extension SearchViewController {
     struct TableViewCellIdentifiers {
         static let searchResultCell = "SearchResultCell"
