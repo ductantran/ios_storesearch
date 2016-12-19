@@ -19,6 +19,7 @@
 		FC7DEB5D1DFE7CAD00EA63A7 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7DEB5C1DFE7CAD00EA63A7 /* SearchResultCell.xib */; };
 		FC7DEB611DFE807500EA63A7 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */; };
 		FC7DEB631DFE834F00EA63A7 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7DEB621DFE834F00EA63A7 /* NothingFoundCell.xib */; };
+		FCC9D57A1E077DFF00884DBB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC9D5791E077DFF00884DBB /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FC7DEB5C1DFE7CAD00EA63A7 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		FC7DEB621DFE834F00EA63A7 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		FCC9D5791E077DFF00884DBB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,13 +76,14 @@
 				FC210AB21DDE9EDF00E56FED /* SearchResult.swift */,
 				FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */,
 				FC3665E61E00337E0080E935 /* UIImageView+DownloadImage.swift */,
+				FC1EE4CD1E00F0550086238B /* DimmingPresentationController.swift */,
+				FCC9D5791E077DFF00884DBB /* GradientView.swift */,
 				FC210AA41DDE942400E56FED /* Main.storyboard */,
 				FC210AA71DDE942400E56FED /* Assets.xcassets */,
 				FC210AAC1DDE942400E56FED /* Info.plist */,
 				FC7DEB5C1DFE7CAD00EA63A7 /* SearchResultCell.xib */,
 				FC7DEB621DFE834F00EA63A7 /* NothingFoundCell.xib */,
 				FC3665E41E001B540080E935 /* LoadingCell.xib */,
-				FC1EE4CD1E00F0550086238B /* DimmingPresentationController.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				FC7DEB611DFE807500EA63A7 /* SearchResultCell.swift in Sources */,
 				FC1EE4CC1E00ED380086238B /* DetailViewController.swift in Sources */,
 				FC210AA11DDE942400E56FED /* AppDelegate.swift in Sources */,
+				FCC9D57A1E077DFF00884DBB /* GradientView.swift in Sources */,
 				FC3665E71E00337E0080E935 /* UIImageView+DownloadImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
