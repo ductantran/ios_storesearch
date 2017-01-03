@@ -78,6 +78,7 @@ extension SearchViewController {
                                         self.showNetworkError()
                                     } else {
                                         self.tableView.reloadData()
+                                        self.landscapeViewController?.searchResultsReceived()
                                     }
             })
             tableView.reloadData()
@@ -125,7 +126,8 @@ extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch search.state {
         case .notSearchedYet:
-            fatalError("Should never get here")
+//            fatalError("Should never get here")
+            return tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.nothingFoundCell, for: indexPath)
         case .loading:
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.loadingCell, for: indexPath)
             let spinner = cell.viewWithTag(100) as! UIActivityIndicatorView
@@ -193,6 +195,9 @@ extension SearchViewController {
             
             coordinator.animate(alongsideTransition: { _ in
                 controller.view.alpha = 0
+                if self.presentedViewController != nil {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }, completion: { _ in
                 controller.view.removeFromSuperview()
                 controller.removeFromParentViewController()
