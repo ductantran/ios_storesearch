@@ -16,6 +16,7 @@
 		FC210AB31DDE9EDF00E56FED /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC210AB21DDE9EDF00E56FED /* SearchResult.swift */; };
 		FC3665E51E001B540080E935 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC3665E41E001B540080E935 /* LoadingCell.xib */; };
 		FC3665E71E00337E0080E935 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3665E61E00337E0080E935 /* UIImageView+DownloadImage.swift */; };
+		FC45CB271E1B78480002A26E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC45CB261E1B78480002A26E /* Search.swift */; };
 		FC7DEB5D1DFE7CAD00EA63A7 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7DEB5C1DFE7CAD00EA63A7 /* SearchResultCell.xib */; };
 		FC7DEB611DFE807500EA63A7 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */; };
 		FC7DEB631DFE834F00EA63A7 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7DEB621DFE834F00EA63A7 /* NothingFoundCell.xib */; };
@@ -38,6 +39,7 @@
 		FC210AB21DDE9EDF00E56FED /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		FC3665E41E001B540080E935 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		FC3665E61E00337E0080E935 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		FC45CB261E1B78480002A26E /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		FC7DEB5C1DFE7CAD00EA63A7 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		FC7DEB621DFE834F00EA63A7 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				FC210AA21DDE942400E56FED /* SearchViewController.swift */,
 				FC1EE4CB1E00ED380086238B /* DetailViewController.swift */,
 				FCE2D11A1E07B05700B323C5 /* LandscapeViewController.swift */,
+				FC45CB261E1B78480002A26E /* Search.swift */,
 				FC210AB21DDE9EDF00E56FED /* SearchResult.swift */,
 				FC7DEB601DFE807500EA63A7 /* SearchResultCell.swift */,
 				FC3665E61E00337E0080E935 /* UIImageView+DownloadImage.swift */,
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC45CB271E1B78480002A26E /* Search.swift in Sources */,
 				FC210AA31DDE942400E56FED /* SearchViewController.swift in Sources */,
 				FC1EE4CE1E00F0550086238B /* DimmingPresentationController.swift in Sources */,
 				FCE2D11D1E07BA9C00B323C5 /* FadeOutAnimationController.swift in Sources */,
